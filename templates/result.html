@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Display</title>
+</head>
+<body>
+    <p>Your selected movie is {{myMovie}} </p>
+    <br>
+    <p>Your recommended list of movies is as follows :-</p>
+
+    {% for item in recommendations %}
+        <p> {{ item }} </p>
+    {% endfor %}
+</body>
+</html>
