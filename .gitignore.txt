@@ -1,2 +1,0 @@
-movievenv
-.ipynb_checkpoints
