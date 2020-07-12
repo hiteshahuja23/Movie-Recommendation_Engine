@@ -4,11 +4,37 @@
 </head>
 <body>
     <p>Your selected movie is {{myMovie}} </p>
-    <br>
+    <hr>
+    <p>This move was released in {{year}}</p>
+    <hr>
+    <p>The average rating for this movie is {{rating}}</p>
+    <hr>
+    <p>The director of the movie is
+    {% for director in directors %}
+    <ul>
+        <li><p> {{ director }} </p></li>
+    </ul>
+    {% endfor %}
+    </p>    
+    <hr>
+    <p>The cast of this movie is as follows</p>
+    {% for cast in casting %}
+    <ul>
+        <li><p> {{ cast }} </p></li>
+    </ul>
+    {% endfor %}
+
+    <hr>
+
     <p>Your recommended list of movies is as follows :-</p>
 
     {% for item in recommendations %}
-        <p> {{ item }} </p>
+    <ul>
+        <li><p> {{ item }} </p></li>
+    </ul>
     {% endfor %}
+    <hr>
+
+
 </body>
 </html>

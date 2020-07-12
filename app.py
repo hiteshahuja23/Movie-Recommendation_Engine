@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import imdb
 
 app = Flask(__name__)
 
@@ -40,8 +41,17 @@ def hello():
     recommendations = []
     for i in range(1,11):
         recommendations.append(get_title_from_index(sorted_similar_movies[i][0]))
+    moviesDB = imdb.IMDb()
+    movies = moviesDB.search_movie(myMovie)
+    id = movies[0].getID()
+    movie = moviesDB.get_movie(id)
+    title = movie['title']
+    year=movie['year']
+    rating=movie['rating']
+    directors=movie['directors']
+    casting=movie['cast']
     print(myMovie)
-    return render_template('result.html', myMovie=myMovie, recommendations=recommendations)
+    return render_template('result.html', myMovie=myMovie, recommendations=recommendations,title=title,year=year,rating=rating,directors=directors,casting=casting)
 
 if __name__ == "__main__":
     app.run()
