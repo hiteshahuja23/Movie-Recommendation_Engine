@@ -43,16 +43,23 @@ def hello():
         for i in range(1,11):
             recommendations.append(get_title_from_index(sorted_similar_movies[i][0]))
         moviesDB = imdb.IMDb()
-        movies = moviesDB.search_movie(myMovie)
-        id = movies[0].getID()
-        movie = moviesDB.get_movie(id)
-        title = movie['title']
-        year=movie['year']
-        rating=movie['rating']
-        # directors=movie['directors']
-        casting=movie['cast']
-        print(myMovie)
-        return render_template('result.html', myMovie=myMovie, recommendations=recommendations,title=title,year=year,rating=rating,casting=casting)
+        IDs = []
+        for i in range(0,5):
+            IDs.append(moviesDB.search_movie(recommendations[i])[0].getID())
+        list_of_movies = []
+        for i in range(0,5):
+            list_of_movies.append(moviesDB.get_movie(IDs[i]))
+
+        year_of_movies = []
+        cover_images = []
+        title_of_movie = []
+        rating_of_movie = []
+        for i in range(0,5):
+            year_of_movies.append(list_of_movies[i]['year'])
+            cover_images.append(list_of_movies[i]['cover url'])
+            title_of_movie.append(list_of_movies[i]['title'])
+            rating_of_movie.append(list_of_movies[i]['rating'])
+        return render_template('result.html', year_of_movies = year_of_movies,cover_images = cover_images, recommendations=recommendations,title_of_movie = title_of_movie,rating_of_movie = rating_of_movie)
     
     except :
         print('Exception occured')

@@ -4,22 +4,6 @@
 <meta charset="utf-8">
 </head>
 <body>
-    <p>Your selected movie is {{myMovie}} </p>
-    <hr>
-    <p>This move was released in {{year}}</p>
-    <hr>
-    <p>The average rating for this movie is {{rating}}</p>
-    <hr>
-    <hr>
-    <p>The cast of this movie is as follows</p>
-    {% for cast in casting %}
-    <ul>
-        <li><p> {{ cast }} </p></li>
-    </ul>
-    {% endfor %}
-
-    <hr>
-
     <p>Your recommended list of movies is as follows :-</p>
 
     {% for item in recommendations %}
@@ -28,6 +12,8 @@
     </ul>
     {% endfor %}
     <hr>
+
+   
 
 
 </body>
