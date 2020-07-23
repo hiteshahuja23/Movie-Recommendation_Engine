@@ -1,20 +1,139 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-<title>Display</title>
-<meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>movie recommender</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="static/assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
+
 <body>
-    <p>Your recommended list of movies is as follows :-</p>
-
-    {% for item in recommendations %}
-    <ul>
-        <li><p> {{ item }} </p></li>
-    </ul>
-    {% endfor %}
-    <hr>
-
-   
-
-
+    <h1 class="display-3 text-capitalize text-center flash animated" style="color: rgb(0, 123, 255);padding-top: 10px;padding-bottom: 10px;height: 106px;font-size: 37px;min-width: 0px;margin-top: 30px;">Recommended list of movies</h1>
+    <section class="py-5">
+        <div class="container">
+            <div class="row filtr-container">
+                <div class="col-md-6 col-lg-4 filtr-item" data-category="2,3">
+                    <div class="card border-dark" >
+                        <div class="card-header bg-dark text-light">
+                        <h5 class="m-0" style="align-self: center;"> {{ recommendations[0] }} </h5>
+                        </div><img  src= "{{ cover_images[0]}}" height="200px" width="120px" style="align-self: center;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <ul>
+                                    <li> 
+                                        Year : <b> {{ year_of_movies[0] }} </b>
+                                    </li>
+                                    <li>
+                                        IMDB rating : <b> {{ rating_of_movie[0] }} </b>
+                                    </li> 
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 filtr-item" data-category="1,3">
+                    <div class="card border-dark">
+                        <div class="card-header bg-dark text-light">
+                            <h5 class="m-0" style="align-self: center;">{{ recommendations[1] }}</h5>
+                        </div><img src= "{{ cover_images[1]}}" height="200px" width="120px" style="align-self: center;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <ul>
+                                    <li>
+                                        Year : <b> {{ year_of_movies[1] }} </b>
+                                    </li>
+                                    <li>
+                                        IMDB rating : <b> {{ rating_of_movie[1] }} </b>
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 filtr-item" data-category="2,3">
+                    <div class="card border-dark">
+                        <div class="card-header bg-dark text-light">
+                            <h5 class="m-0" style="align-self: center;" >{{ recommendations[2] }}</h5>
+                        </div><img  src= "{{ cover_images[2]}}" height="200px" width="120px" style="align-self: center;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <ul>
+                                    <li>
+                                        Year : <b> {{ year_of_movies[2] }} </b>
+                                    </li>
+                                    <li>
+                                        IMDB rating : <b> {{ rating_of_movie[2] }} </b>
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 filtr-item" data-category="3">
+                    <div class="card border-dark">
+                        <div class="card-header bg-dark text-light">
+                            <h5 class="m-0" style="align-self: center;">{{ recommendations[3] }}</h5>
+                        </div><img  src= "{{ cover_images[3]}}" height="200px" width="120px" style="align-self: center;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <ul>
+                                    <li>
+                                        Year : <b> {{ year_of_movies[3] }} </b>
+                                    </li>
+                                    <li>
+                                        IMDB rating : <b> {{ rating_of_movie[3] }} </b>
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 filtr-item" data-category="1,2">
+                    <div class="card border-dark">
+                        <div class="card-header bg-dark text-light">
+                            <h5 class="m-0" style="align-self: center;">{{ recommendations[4] }}</h5>
+                        </div><img  src= "{{ cover_images[4]}}" height="200px" width="120px" style="align-self: center;" >
+                        <div class="card-body">
+                            <p class="card-text">
+                                <ul>
+                                    <li>
+                                        Year : <b> {{ year_of_movies[4] }} </b>
+                                    </li>
+                                    <li>
+                                        IMDB rating : <b> {{ rating_of_movie[4] }} </b>
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 filtr-item" data-category="1,3">
+                    <div class="card border-dark">
+                        <div class="card-header bg-dark text-light">
+                            <h5 class="m-0" style="align-self: center;">{{ recommendations[5] }}</h5>
+                        </div><img  src= "{{ cover_images[5]}}" height="200px" width="120px" style="align-self: center;" >
+                        <div class="card-body">
+                            <p class="card-text">
+                                <ul>
+                                    <li>
+                                        Year : <b> {{ year_of_movies[5] }} </b>
+                                    </li>
+                                    <li>
+                                        IMDB rating : <b> {{ rating_of_movie[5] }} </b>
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="static/assets/js/jquery.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/js/script.min.js"></script>
 </body>
+
 </html>
